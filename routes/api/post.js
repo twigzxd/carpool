@@ -8,7 +8,7 @@ const Profile = require("../../models/Profile");
 
 const validatePostInput = require("../../validation/post");
 
-// @route   GET api/posts
+// @route   GET api/post
 // @desc    Get all posts
 // @access  Public
 router.get("/", (req, res) => {
@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
     .catch(err => res.status(404).json({ nopostsfound: "No posts found" }));
 });
 
-// @route   GET api/posts/:id
+// @route   GET api/post/:id
 // @desc    Get a post by id
 // @access  Public
 router.get("/:id", (req, res) => {
@@ -29,7 +29,7 @@ router.get("/:id", (req, res) => {
     );
 });
 
-// @route   POST api/posts
+// @route   POST api/post
 // @desc    Create a post
 // @access  Private
 router.post(
@@ -52,7 +52,7 @@ router.post(
   }
 );
 
-// @route   DELETE api/posts/:id
+// @route   DELETE api/post/:id
 // @desc    Delete post by id
 // @access  Private
 router.delete(
@@ -74,7 +74,7 @@ router.delete(
   }
 );
 
-// @route   POST api/posts/like/:id
+// @route   POST api/post/like/:id
 // @desc    Like a post
 // @access  Private
 router.post(
@@ -98,7 +98,7 @@ router.post(
   }
 );
 
-// @route   POST api/posts/unlike/:id
+// @route   POST api/post/unlike/:id
 // @desc    Unlike a post
 // @access  Private
 router.post(
