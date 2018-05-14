@@ -5,9 +5,9 @@ const passport = require("passport");
 
 const app = express();
 
-const users = require("./routes/api/users");
+const users = require("./routes/api/user");
 const profile = require("./routes/api/profile");
-const posts = require("./routes/api/posts");
+const posts = require("./routes/api/post");
 
 // body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
