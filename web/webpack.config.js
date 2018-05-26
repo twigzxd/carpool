@@ -19,6 +19,12 @@ module.exports = {
             }
         ]
     },
+    watchOptions: {
+        aggregateTimeout: 300,
+        ignored: /node_modules/,
+        poll: 1000
+    },
+    watch: true,
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/index.html",
