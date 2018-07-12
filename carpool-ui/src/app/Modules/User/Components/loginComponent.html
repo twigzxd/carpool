@@ -1,0 +1,23 @@
+<div>
+  <h2>Login Page</h2>
+  <form name="loginForm" (ngSubmit)="login()" #f="ngForm" novalidate>
+
+    <div class="form-group" ngClass="{ 'has-error': f.submitted && !email.valid }">
+      <label>Email</label>
+      <input type="text" class="form-control" name="email"
+             [(ngModel)]="model.email" #userName="ngModel" required />
+    </div>
+
+    <div class="form-group" ngClass="{ 'has-error': f.submitted && !password.valid }">
+      <label>Password</label>
+      <input type="text" class="form-control" name="email"
+             [(ngModel)]="model.password" #password="ngModel" required />
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary">
+        Login
+      </button>
+    </div>
+  </form>
+</div>
