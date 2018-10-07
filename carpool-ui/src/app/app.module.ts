@@ -1,17 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
 import { UserModule } from './Modules/User/userModule';
-// import { UserService } from './Modules/User/services';
+import { UserServiceService } from './Modules/User/user-service.service';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'test',
-    loadChildren: () => UserModule
+    path: 'user',
+    // loadChildren: () => UserModule
+    loadChildren: './Modules/User/userModule#UserModule'
   }
 ];
 
@@ -19,13 +19,14 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     UserModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {useHash: true})
   ],
   declarations: [
     AppComponent
   ],
-  providers: [],
+  providers: [
+    UserServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,14 +7,6 @@ import { LoginComponent } from './Components/loginComponent';
 import { RegisterComponent } from './Components/registerComponent'
 
 import { RoutingUserModule } from './RountingModule';
-import  {UserServiceService} from './user-service.service'
-import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [
-  // { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
-];
 
 @NgModule({
   imports: [
@@ -23,15 +15,11 @@ const routes: Routes = [
     RoutingUserModule,
     HttpClientModule,
   ],
-
   declarations: [
     LoginComponent,
     RegisterComponent
   ],
-
-  providers: [
-    UserServiceService
-  ]
+  providers: []
 })
 
 export class UserModule {}
