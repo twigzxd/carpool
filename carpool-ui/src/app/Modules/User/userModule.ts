@@ -7,6 +7,7 @@ import { LoginComponent } from './Components/loginComponent';
 import { RegisterComponent } from './Components/registerComponent'
 
 import { RoutingUserModule } from './RountingModule';
+import  {UserServiceService} from './user-service.service'
 
 @NgModule({
   imports: [
@@ -15,11 +16,15 @@ import { RoutingUserModule } from './RountingModule';
     RoutingUserModule,
     HttpClientModule,
   ],
+
   declarations: [
     LoginComponent,
     RegisterComponent
   ],
-  providers: []
+
+  providers: [
+    UserServiceService
+  ]
 })
 
 export class UserModule {}

@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
-import {UserServiceService} from '../user-service.service'
-import {p} from "../../../../../node_modules/@angular/core/src/render3";
+import {UserServiceService} from '../user-service.service';
 
 @Component({
   templateUrl: './registerComponent.html'
 })
 
-export class RegisterComponent implements OnInit{
+export class RegisterComponent {
 
   public model: any = {};
 
   constructor(
     private userServiceService: UserServiceService
   ){}
-
-  ngOnInit(){}
 
   register() {
 

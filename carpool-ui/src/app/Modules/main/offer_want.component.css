@@ -1,0 +1,14 @@
+.container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-gap: 1em;
+    background: rgb(247, 249, 255);
+}
+.card {
+    background: rgb(255, 255, 255);
+    width: 150px;
+    height: 60px;
+    border-radius: 4px;
+    box-shadow: 4px 4px 4px rgba(199, 199, 199, 0.7);
+    text-align: center;
+}

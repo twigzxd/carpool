@@ -1,10 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">CarP</a>
-  <a *ngIf="!isLoggedIn" routerLink="/user/login" routerLinkActive="active">Login / Sign Up</a>
-  <a *ngIf="isLoggedIn" routerLink="/user/login" routerLinkActive="active">Logout</a>
+  <a routerLink="carpoolPost" routerLinkActive="active">CarpoolPost</a>
+  <a routerLink="login" routerLinkActive="active">Login / Sign Up</a>
 </nav>
-<div style="text-align:center">
-</div>
 <router-outlet></router-outlet>
-

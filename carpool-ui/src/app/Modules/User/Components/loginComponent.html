@@ -10,7 +10,7 @@
 
     <div class="form-group" ngClass="{ 'has-error': f.submitted && !password.valid }">
       <label>Password</label>
-      <input type="password" class="form-control" name="email"
+      <input type="text" class="form-control" name="email"
              [(ngModel)]="model.password" required />
     </div>
 
@@ -22,7 +22,7 @@
       <button (click)="login()" class="btn btn-primary">
         Login
       </button>
-      <button routerLink="/user/register" routerLinkActive="active" class="btn">
+      <button routerLink="/register" routerLinkActive="active" class="btn">
         Sign Up
       </button>
       <button routerLink="/" routerLinkActive="active" class="btn">

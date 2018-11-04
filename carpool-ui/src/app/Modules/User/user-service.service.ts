@@ -1,38 +1,37 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs'
+import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 
 export class UserServiceService {
 
   private httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
     })
   };
 
   private baseURL:string = 'http://localhost:5000/api/user/';
-  public _loggedIn:boolean = false;
-  public logged: BehaviorSubject<boolean>;
+  private _loggedIn:boolean;
 
   constructor(private http: HttpClient) {
-    this.logged = new BehaviorSubject(false);
+    this._loggedIn = false;
   }
 
-  login(email: string, password: string):Promise<any> {
+  login(email: string, password: string):Observable<any> {
     let apiUrl = this.baseURL + 'login';
     return this.http.post<any>(apiUrl,
-      {email: email, password: password}, this.httpOptions).toPromise()
-      .then(function(response) {
-        if(response.success) {
+      {email: email, password: password}, this.httpOptions).pipe(map(
+        response => {
           this._loggedIn = true;
-          this.logged.next(true);
+          return response;
         }
-      }.bind(this));
+    ));
   }
 
   register(payload: any) {
@@ -40,8 +39,7 @@ export class UserServiceService {
     return this.http.post<any>(apiUrl, payload);
   }
 
-  getLoggedIn() {
-    return this.logged;
+  isLoggedIn():boolean {
+    return this._loggedIn;
   }
-
 }

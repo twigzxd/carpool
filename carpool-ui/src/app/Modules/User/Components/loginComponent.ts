@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import {UserServiceService} from '../user-service.service'
 
 @Component({
-  templateUrl: './loginComponent.html'
+  templateUrl: './loginComponent.html',
+  providers: [ UserServiceService ]
 })
 
 export class LoginComponent implements OnInit{
@@ -22,11 +23,13 @@ export class LoginComponent implements OnInit{
 
   login() {
     this.userServiceService.login(this.model.email, this.model.password)
-      .then(() => {
+      .subscribe(() => {
         this.message = 'success';
         this.router.navigateByUrl('/');
       },  () => {
         this.message = 'error';
+      }, () => {
+        this.message = 'complete';
       });
   }
 }
